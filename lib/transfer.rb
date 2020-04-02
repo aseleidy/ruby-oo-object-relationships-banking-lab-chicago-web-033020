@@ -23,7 +23,7 @@ class Transfer
   # check sender has enough $ in balance
   # withdraw $ from sender balance
   # deposit $ into receiver balance
-    if (self.status == "pending") && (@sender.balance > @amount) && (self.valid?)
+    if (@status == "pending") && (@sender.balance > @amount) && (self.valid?)
       
       @sender.balance -+ @amount
       @receiver.balance += @amount
