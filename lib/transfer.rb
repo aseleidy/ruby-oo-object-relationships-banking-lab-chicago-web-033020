@@ -20,9 +20,6 @@ class Transfer
   end
   
   def execute_transaction
-  # check sender has enough $ in balance
-  # withdraw $ from sender balance
-  # deposit $ into receiver balance
     if (@status == "pending") && (@sender.balance > @amount) && (self.valid?)
       
       @sender.balance -+ @amount
