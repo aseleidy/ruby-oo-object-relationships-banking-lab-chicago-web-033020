@@ -22,7 +22,7 @@ class Transfer
   def execute_transaction
     if (@status == "pending") && (@sender.balance > @amount) && (self.valid?)
       
-      @sender.withdraw(@amount)
+      @sender.withdrawal(@amount)
       @receiver.deposit(@amount)
       @status = "complete"
     else
@@ -34,7 +34,7 @@ class Transfer
   def reverse_transfer
     if self.status == "complete"
       @sender.deposit(@amount)
-      @receiver.withdraw(@amount)
+      @receiver.withdrawal(@amount)
       @status = "reversed"
     end
   end
