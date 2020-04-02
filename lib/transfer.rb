@@ -25,8 +25,8 @@ class Transfer
   # deposit $ into receiver balance
     if (self.status == "pending") && (@sender.balance > @amount) && (self.valid?)
       
-      @sender.withdraw(@amount)
-      @receiver.deposit(@amount)
+      @sender.balance -+ @amount
+      @receiver.balance += @amount
       @status = "complete"
     else
       @status = "rejected"
